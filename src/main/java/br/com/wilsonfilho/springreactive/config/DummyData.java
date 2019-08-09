@@ -1,5 +1,6 @@
 package br.com.wilsonfilho.springreactive.config;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 import org.springframework.boot.CommandLineRunner;
@@ -24,7 +25,7 @@ class DummyData implements CommandLineRunner {
 				.thenMany(Flux
 						.just("Notebook Dell 5570", "Mouse Microsoft T3", "Monitor LCD 15.6",
 								"Roteador Intelbras WRN301", "Headphone Gamer")
-						.map(name -> new Product(UUID.randomUUID().toString(), name)).flatMap(repository::save))
+						.map(name -> new Product(UUID.randomUUID().toString(), name, "description product", BigDecimal.ZERO)).flatMap(repository::save))
 				.subscribe(System.out::println);
 	}
 }
